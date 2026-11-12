@@ -15,3 +15,9 @@ report = "\n".join([
  "# Pulse API Health Report",
  f"Generated UTC: {datetime.now(timezone.utc).isoformat()}",
  "", "| Endpoint | HTTP Status | Response | Latency |",
+  "|---|---:|---|---:|", *rows, ""
+])
+Path("reports").mkdir(exist_ok=True)
+Path("reports/health-report.md").write_text(report, encoding="utf-8")
+print(report)
+
